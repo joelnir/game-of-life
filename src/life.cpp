@@ -5,7 +5,7 @@
 #include <fstream>
 
 using namespace std;
-
+//test comment
 Grid<bool> fileToGrid(string fileName);
 int charToInt(char c);
 void printGrid(Grid<bool> board);
