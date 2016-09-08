@@ -5,11 +5,17 @@
 #include <fstream>
 
 using namespace std;
-//test comment
+
+/* Reads file and creates a boolean grid based on file content. The fileName is the resource file to be read. */
 Grid<bool> fileToGrid(string fileName);
-int charToInt(char c);
-void printGrid(Grid<bool> board);
+
+/* Prints the grid to the console. */
+void printGrid(Grid<bool> &board);
+
+/* Advances the grid one generation according to the rules of Conway's Game of Life.*/
 void advanceGrid(Grid<bool> &board);
+
+/* Animates the grid n generations. */
 void animateGrid(int n, Grid<bool> &board);
 
 int main() {
@@ -17,7 +23,14 @@ int main() {
     string nKey;
     string fileName;
 
-    cout << "Welcome to the TDDD86 Game of Life" << endl;
+    cout << "Welcome to the TDDD86 Game of Life, " << endl <<
+            "a simulation of the lifecycle of a bacteria colony." << endl <<
+            "Cells (X) live and die by the following rules:" << endl <<
+            "- A cell with 1 or fewer neighbours dies." << endl <<
+            "- Locations with 2 neighbours remain stable." << endl <<
+            "- Locations with 3 neighbours will create life." << endl <<
+            "- A cell with 4 or more neighbours dies." << endl;
+
     cout << "Grid input file name? ";
     cin >> fileName;
 
@@ -31,7 +44,7 @@ int main() {
         cin >> nKey;
 
         if (nKey == "a"){
-            animateGrid(60, board);
+            animateGrid(40, board);
         }
 
         else if(nKey == "t"){
@@ -42,7 +55,7 @@ int main() {
         }
     }
 
-    cout << "Have a nice Life! Din jävel!" << endl;
+    cout << "Have a nice Life!" << endl;
     return 0;
 }
 
@@ -66,17 +79,14 @@ Grid<bool> fileToGrid(string fileName){
     input.open(fileName);
     string line;
 
-    getline(input, line);
-    rows = stoi(line);
-
-    getline(input, line);
-    cols = stoi(line);
+    input >> rows;
+    input >> cols;
 
     Grid<bool> board (rows, cols);
 
     for(int i = 0; i < rows; i++){
 
-        getline(input, line);
+        input >> line;
 
         for(int j = 0; j < cols; j++){
             board.set(i, j, (line[j] == 'X'));
@@ -88,7 +98,7 @@ Grid<bool> fileToGrid(string fileName){
 }
 
 
-void printGrid(Grid<bool> board){
+void printGrid(Grid<bool> &board){
     for(int i = 0; i < board.numRows(); i++){
         for(int j = 0; j < board.numCols(); j++){
             if(board.get(i, j)){

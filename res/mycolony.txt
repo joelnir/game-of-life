@@ -1,5 +1,20 @@
-# This file is empty for now, but you should delete this initial text
-# and replace it with your own creative input file representing a
-# starting state for the Game of Life simulation.
-# The file should be your own creation that is different from the
-# other provided starter grid files.
+18
+18
+------------------
+---XXXXX-------X--
+---X----XX-----X--
+---X------X----X--
+---X------X----X--
+---X----XX-----X--
+---X---X-------X--
+---XXXX--------X--
+---X---X-------X--
+---X----XX-----X--
+---X------X----X--
+---X------X----X--
+---X----XX--------
+---X---X-------X--
+---XXXX-------XXX-
+---------------X--
+------------------
+------------------
