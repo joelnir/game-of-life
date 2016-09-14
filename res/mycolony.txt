@@ -18,3 +18,7 @@
 ---------------X--
 ------------------
 ------------------
+
+# Några utritade ascii-tecken
+# Utvecklas i ett antal generationer
+# för att sedan fastna i ett stabilt läge.

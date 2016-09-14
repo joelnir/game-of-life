@@ -7,7 +7,7 @@
 using namespace std;
 
 /* Reads file and creates a boolean grid based on file content. The fileName is the resource file to be read. */
-Grid<bool> fileToGrid(string fileName);
+void fileToGrid(string fileName, Grid<bool> &board);
 
 /* Prints the grid to the console. */
 void printGrid(Grid<bool> &board);
@@ -34,7 +34,8 @@ int main() {
     cout << "Grid input file name? ";
     cin >> fileName;
 
-    Grid<bool> board = fileToGrid(fileName);
+    Grid<bool> board;
+    fileToGrid(fileName, board);
 
     while(run){
         clearConsole();
@@ -71,7 +72,7 @@ void animateGrid(int n, Grid<bool> &board){
 }
 
 
-Grid<bool> fileToGrid(string fileName){
+void fileToGrid(string fileName, Grid<bool> &board){
     int rows;
     int cols;
 
@@ -81,8 +82,6 @@ Grid<bool> fileToGrid(string fileName){
 
     input >> rows;
     input >> cols;
-
-    Grid<bool> board (rows, cols);
 
     for(int i = 0; i < rows; i++){
 
@@ -94,7 +93,6 @@ Grid<bool> fileToGrid(string fileName){
     }
 
     input.close();
-    return board;
 }
 
 
