@@ -83,6 +83,8 @@ void fileToGrid(string fileName, Grid<bool> &board){
     input >> rows;
     input >> cols;
 
+    board.resize(rows, cols);
+
     for(int i = 0; i < rows; i++){
 
         input >> line;
